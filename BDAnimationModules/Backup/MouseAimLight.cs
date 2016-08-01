@@ -92,7 +92,7 @@ namespace BDAnimationModules
 				deployStates = SetUpAnimation(deployAnimName, this.part);
 			}
 
-			emissiveMatRef = part.FindModelTransform(emissiveObjectName).GetComponent<Renderer>().material;
+			emissiveMatRef = part.FindModelTransform(emissiveObjectName).renderer.material;
 			
 			spotLight = part.FindModelTransform(lightObjectName).GetComponent<Light>();
 			spotlightIntensity = spotLight.intensity;

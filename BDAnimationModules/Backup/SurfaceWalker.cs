@@ -80,13 +80,11 @@ namespace BDAnimationModules
 			
 			if(walkerEnabled && vessel!=null && vessel.loaded)
 			{
-			  var rigidbody = vessel.GetComponent<Rigidbody>();
-
-        if (vessel.checkLanded() && !rigidbody.isKinematic && feetAreDown)
+				if(vessel.checkLanded() && !vessel.rigidbody.isKinematic && feetAreDown)
 				{
 					
 					//stickyFeet
-					if(stickyFeet) rigidbody.AddForce(10 * -part.transform.up);
+					if(stickyFeet) vessel.rigidbody.AddForce(10 * -part.transform.up);
 					
 					
 					forwardForce = Vector3.MoveTowards(forwardForce, -vessel.ctrlState.pitch * moveForce * Vector3.forward, moveForce * moveAccelFactor * Time.fixedDeltaTime);
@@ -131,7 +129,11 @@ namespace BDAnimationModules
 		{
 			GUI.Label(new Rect(10,10,200,200), "Groundhit: " + groundHit);
 			GUI.Label(new Rect(10,30,200,200), "Wheel susp dist: " + debugWheelSuspDist);
-		}		
+		}
+		
+		
+		
+		
 	}
 }
 

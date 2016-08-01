@@ -481,27 +481,17 @@ namespace BDAnimationModules
 			//part.mass = baseMass * Mathf.Pow(algScale, 2);
 		}
 
-		public float GetModuleMass(float defaultMass, ModifierStagingSituation sit = 0)
+		public float GetModuleMass(float defaultMass)
 		{
 			return (baseMass * Mathf.Pow(algScale, 3))-defaultMass;
 		}
 
-		public float GetModuleCost(float defaultCost, ModifierStagingSituation sit = 0)
+		public float GetModuleCost(float defaultCost)
 		{
 			return (defaultCost * Mathf.Pow(algScale, 2))-defaultCost;
 		}
 
-	  public ModifierChangeWhen GetModuleMassChangeWhen()
-	  {
-	    return ModifierChangeWhen.CONSTANTLY;
-	  }
-
-	  public ModifierChangeWhen GetModuleCostChangeWhen()
-	  {
-	    return ModifierChangeWhen.CONSTANTLY;
-	  }
-
-    public void FixedUpdate()
+		public void FixedUpdate()
 		{
 			float negTiltAngleAdjust = (legAngle < 0) ? 180 : 0;
 			if(transformsToMirror!=string.Empty)
